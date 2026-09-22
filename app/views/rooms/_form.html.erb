@@ -1,0 +1,29 @@
+<%= form_with model: room do |form| %>
+
+  <% if room.errors.any? %>
+    <div>
+      <h2>Could not save room:</h2>
+
+      <ul>
+        <% room.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :capacity %>
+    <%= form.number_field :capacity, min: 1 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

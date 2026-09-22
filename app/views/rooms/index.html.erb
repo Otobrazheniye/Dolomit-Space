@@ -1,0 +1,18 @@
+<h1>Rooms</h1>
+
+<p>
+  <%= link_to "Create new room", new_room_path %>
+</p>
+
+<% if @rooms.any? %>
+  <ul>
+    <% @rooms.each do |room| %>
+      <li>
+        <%= link_to room.name, room_path(room) %>
+        — Capacity: <%= room.capacity %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No rooms available.</p>
+<% end %>
