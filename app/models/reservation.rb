@@ -31,14 +31,14 @@ class Reservation < ApplicationRecord
     events = []
 
     overlapping_reservations.each do |reservation|
-      events << [reservation.start_date, 1]
-      events << [reservation.end_date, -1]
+      events << [ reservation.start_date, 1 ]
+      events << [ reservation.end_date, -1 ]
     end
 
-    events << [start_date, 1]
-    events << [end_date, -1]
+    events << [ start_date, 1 ]
+    events << [ end_date, -1 ]
 
-    events.sort_by! { |time, change| [time, change] }
+    events.sort_by! { |time, change| [ time, change ] }
 
     current_reservations = 0
 
@@ -52,5 +52,3 @@ class Reservation < ApplicationRecord
     end
   end
 end
-
-

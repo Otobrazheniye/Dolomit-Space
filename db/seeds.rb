@@ -231,4 +231,3 @@ Reservation.create!(
 puts "Seed completed successfully."
 puts "Rooms: #{Room.count}"
 puts "Reservations: #{Reservation.count}"
-
