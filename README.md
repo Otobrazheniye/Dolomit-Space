@@ -463,15 +463,29 @@ Uses capacity `1` and demonstrates that consecutive reservations are allowed whe
 
 ## Requirements
 
-You need:
+Before starting, make sure the following are installed:
 
-```text
-Ruby
-Bundler
-MySQL
+- Ruby 4.0+
+- Bundler
+- MySQL Server
+- Git
+
+The application uses MySQL with the local `root` user by default.
+
+---
+
+## 1. Clone the repository
+
+```bash
+git clone https://github.com/Otobrazheniye/Dolomit-Space.git
+cd Dolomit-Space
 ```
 
-Install project dependencies:
+The HTTPS URL is used here so that cloning the public repository does not require a configured GitHub SSH key.
+
+---
+
+## 2. Install dependencies
 
 ```bash
 bundle install
@@ -479,45 +493,47 @@ bundle install
 
 ---
 
-## Database configuration
+## 3. Configure MySQL password
 
-The local MySQL password is intentionally **not stored in Git**.
+The MySQL password is intentionally not stored in the repository.
 
-For Git Bash / Linux / macOS:
+### Git Bash / Linux / macOS
 
 ```bash
 export MYSQL_PASSWORD='your_mysql_password'
 ```
 
-If MySQL runs on a non-default host, `DB_HOST` can also be configured according to the environment.
-
-For PowerShell:
+### Windows PowerShell
 
 ```powershell
 $env:MYSQL_PASSWORD="your_mysql_password"
 ```
 
-Then prepare the database:
+The environment variable must be set in the same terminal session in which the Rails commands are executed.
+
+---
+
+## 4. Prepare the database
 
 ```bash
 bin/rails db:setup
 ```
 
-`db:setup` creates the database/schema and loads the provided seed scenarios.
+This command prepares the database and loads the sample data from `db/seeds.rb`.
+
+After setup, the application already contains several rooms and reservation scenarios, including periods where room capacity is nearly or completely reached.
+
+No manual data creation is required before testing the application.
 
 ---
 
-## Build styles
-
-The project uses SCSS through Dart Sass.
-
-Build styles once with:
+## 5. Build SCSS
 
 ```bash
 bin/rails dartsass:build
 ```
 
-or run the Sass watcher during development:
+For development with automatic SCSS rebuilding:
 
 ```bash
 bin/rails dartsass:watch
@@ -525,7 +541,7 @@ bin/rails dartsass:watch
 
 ---
 
-## Start the application
+## 6. Start the application
 
 ```bash
 bin/rails server
@@ -537,6 +553,21 @@ Open:
 http://localhost:3000
 ```
 
+The application is now ready to use.
+
+---
+
+## Quick verification
+
+After startup you can immediately:
+
+1. Open one of the seeded rooms.
+2. Review its existing reservations.
+3. Create a reservation during an available period.
+4. Try creating another reservation during a period where capacity is already full.
+5. Edit an existing reservation.
+
+When the requested interval would exceed the room capacity, the reservation is rejected with a validation error.
 ---
 
 # Project Structure
