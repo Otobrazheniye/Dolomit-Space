@@ -6,5 +6,29 @@
 </p>
 
 <p>
+  <%= link_to "Create reservation", new_reservation_path %>
+</p>
+
+<h2>Reservations</h2>
+
+<% if @reservations.any? %>
+  <ul>
+    <% @reservations.each do |reservation| %>
+      <li>
+        <strong><%= reservation.reserved_by %></strong>
+
+        <%= reservation.start_date.strftime("%d.%m.%Y %H:%M") %>
+        —
+        <%= reservation.end_date.strftime("%d.%m.%Y %H:%M") %>
+
+        <%= link_to "Edit", edit_reservation_path(reservation) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No reservations yet.</p>
+<% end %>
+
+<p>
   <%= link_to "Back to rooms", rooms_path %>
 </p>

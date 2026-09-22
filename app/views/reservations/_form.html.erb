@@ -1,0 +1,39 @@
+<%= form_with model: reservation do |form| %>
+
+  <% if reservation.errors.any? %>
+    <div>
+      <h2>Could not save reservation:</h2>
+
+      <ul>
+        <% reservation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :room_id, "Room" %>
+    <%= form.collection_select :room_id, rooms, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.label :reserved_by %>
+    <%= form.text_field :reserved_by %>
+  </div>
+
+  <div>
+    <%= form.label :start_date %>
+    <%= form.datetime_local_field :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date %>
+    <%= form.datetime_local_field :end_date %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

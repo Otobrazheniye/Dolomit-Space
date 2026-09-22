@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @reservations = @room.reservations.order(:start_date)
   end
 
   def new

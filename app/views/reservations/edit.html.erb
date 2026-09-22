@@ -1,0 +1,9 @@
+<h1>Edit Reservation</h1>
+
+<%= render "form",
+           reservation: @reservation,
+           rooms: @rooms %>
+
+<p>
+  <%= link_to "Back to room", room_path(@reservation.room) %>
+</p>
