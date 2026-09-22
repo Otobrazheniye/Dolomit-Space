@@ -1,7 +1,7 @@
 <%= form_with model: reservation do |form| %>
 
   <% if reservation.errors.any? %>
-    <div>
+    <div class="errors">
       <h2>Could not save reservation:</h2>
 
       <ul>

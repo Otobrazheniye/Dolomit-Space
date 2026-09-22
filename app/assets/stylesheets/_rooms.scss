@@ -1,0 +1,39 @@
+@use "variables" as *;
+
+.room {
+  margin-bottom: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+
+  background: linear-gradient(
+    145deg,
+    rgba($bg-panel, 0.98),
+    rgba(#0a1728, 0.98)
+  );
+
+  border: 1px solid rgba($gold, 0.65);
+  border-left: 4px solid $gold;
+
+  border-radius: $border-radius;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+
+  transition:
+    transform $transition,
+    border-color $transition,
+    background $transition;
+
+  &:hover {
+    transform: translateY(-2px);
+
+    background: $bg-panel-hover;
+
+    border-color: $gold-light;
+  }
+
+  a {
+    color: $gold-light;
+
+    font-size: 1.08rem;
+    font-weight: bold;
+  }
+}

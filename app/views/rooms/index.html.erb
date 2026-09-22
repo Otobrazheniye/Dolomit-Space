@@ -7,9 +7,12 @@
 <% if @rooms.any? %>
   <ul>
     <% @rooms.each do |room| %>
-      <li>
+      <li class="room">
         <%= link_to room.name, room_path(room) %>
-        — Capacity: <%= room.capacity %>
+
+        <span>
+          Capacity: <%= room.capacity %>
+        </span>
       </li>
     <% end %>
   </ul>

@@ -68,3 +68,5 @@ end
 
 gem "fiddle", "~> 1.1"
 
+
+gem "dartsass-rails", "~> 0.5.1"

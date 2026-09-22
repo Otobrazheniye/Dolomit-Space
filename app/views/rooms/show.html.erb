@@ -14,14 +14,20 @@
 <% if @reservations.any? %>
   <ul>
     <% @reservations.each do |reservation| %>
-      <li>
-        <strong><%= reservation.reserved_by %></strong>
+      <li class="reservation">
 
-        <%= reservation.start_date.strftime("%d.%m.%Y %H:%M") %>
-        —
-        <%= reservation.end_date.strftime("%d.%m.%Y %H:%M") %>
+        <strong>
+          <%= reservation.reserved_by %>
+        </strong>
+
+        <div>
+          <%= reservation.start_date.strftime("%d.%m.%Y %H:%M") %>
+          —
+          <%= reservation.end_date.strftime("%d.%m.%Y %H:%M") %>
+        </div>
 
         <%= link_to "Edit", edit_reservation_path(reservation) %>
+
       </li>
     <% end %>
   </ul>

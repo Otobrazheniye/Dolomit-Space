@@ -1,0 +1,132 @@
+@use "variables" as *;
+
+form {
+  max-width: 620px;
+
+  padding: $spacing-lg;
+
+  background: rgba($bg-panel, 0.96);
+
+  border: 1px solid $gold-dark;
+  border-radius: $border-radius;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba($gold, 0.08);
+
+  > div {
+    margin-bottom: $spacing-md;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: $spacing-xs;
+
+  color: $gold-light;
+
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+
+input,
+select {
+  width: 100%;
+
+  padding: 11px 12px;
+
+  background: #091525;
+
+  border: 1px solid rgba($gold, 0.7);
+  border-radius: 6px;
+
+  color: $text-main;
+
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+
+  outline: none;
+
+  transition:
+    border-color $transition,
+    box-shadow $transition,
+    background $transition;
+
+  &:focus {
+    background: #0d1b2e;
+
+    border-color: $gold-light;
+
+    box-shadow: 0 0 0 3px rgba($gold, 0.14);
+  }
+}
+
+select option {
+  background: $bg-dark;
+  color: $text-main;
+}
+
+input[type="submit"] {
+  width: auto;
+  min-width: 150px;
+
+  padding: 11px 22px;
+
+  background: linear-gradient(
+    180deg,
+    $gold-light,
+    $gold
+  );
+
+  border: 1px solid $gold-light;
+
+  color: $text-dark;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform $transition,
+    box-shadow $transition,
+    filter $transition;
+
+  &:hover {
+    transform: translateY(-1px);
+
+    filter: brightness(1.08);
+
+    box-shadow: 0 5px 18px rgba($gold, 0.25);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.errors {
+  margin-bottom: $spacing-lg;
+  padding: $spacing-md;
+
+  background: rgba($error, 0.08);
+
+  border: 1px solid $error;
+  border-radius: 7px;
+
+  color: #ffd4d4;
+
+  h2 {
+    margin: 0 0 $spacing-sm;
+
+    color: #ff9d9d;
+    font-size: 1.1rem;
+  }
+
+  ul {
+    padding-left: 18px;
+
+    list-style: disc;
+  }
+}
